@@ -1,4 +1,4 @@
-schwarzschild
+Schwarzschild
 =============
 
 Python script for calculating trajectories around a black hole

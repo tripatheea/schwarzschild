@@ -36,10 +36,13 @@ for y0 in np.linspace(0.4999,0.5001,11):
 		-np.sin(x0[2])/np.sin(x0[1])/x0[0]*x0rd[0] + np.cos(x0[2])/np.sin(x0[1])/x0[0]*x0rd[1]
 	])
 
+	# Pack the initial conditions into an array
 	y0 = np.array([  x0[0],  x0[1],  x0[2], 0.0, x0d[0], x0d[1], x0d[2], 1.0 ])
 
+	# Parameterized time intervals
 	s = np.linspace(0,400,10000)
 
+	# Integrate
 	y = spi.odeint( deriv, y0, s )
 
   # Unpack the results
@@ -48,6 +51,7 @@ for y0 in np.linspace(0.4999,0.5001,11):
 	phi = y[:,2]
 	t = y[:,3]
 
+	# Plot in the equatorial plane
 	pl.plot(r*np.cos(phi),r*np.sin(phi))
 
 
