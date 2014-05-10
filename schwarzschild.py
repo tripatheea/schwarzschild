@@ -17,11 +17,11 @@ def deriv(y,s):
 
 fig = pl.figure(1)
 
-for y0 in np.linspace(0.4999,0.5001,11):
+for y0 in np.linspace(0.2999,0.2001,11):
 
   # Initial conditions
   x0r = np.array([ 2.0, 0.0, 0.0])
-  x0rd= np.array([ 0.0, y0, 0.0])
+  x0rd= np.array([ y0, 0.25, 0.0])
 
   # Convert the initial position to spherical coordinates
   x0 = np.zeros(3)
@@ -40,7 +40,7 @@ for y0 in np.linspace(0.4999,0.5001,11):
   y0 = np.array([  x0[0],  x0[1],  x0[2], 0.0, x0d[0], x0d[1], x0d[2], 1.0 ])
 
   # Parameterized time intervals
-  s = np.linspace(0,400,10000)
+  s = np.linspace(0,30,10000)
 
   # Integrate
   y = spi.odeint( deriv, y0, s )
