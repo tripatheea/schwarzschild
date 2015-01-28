@@ -18,10 +18,8 @@ def deriv(y,s):
 fig = pl.figure(1)
 
 
-for angle in [0.10, 0.20, 0.25, 0.35, 0.45]:			# Go from 0.05 to 1.00
-# Returns num evenly spaced samples, calculated over the interval [start, stop ].
-# for y0 in np.linspace(0.2999, 0.2001, 11):      # numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
-	for y0 in np.linspace(0.2999, 0.2001, 2):      # numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
+for angle in [0.10, 0.20, 0.25, 0.35, 0.45]:			
+	for y0 in np.linspace(0.2999, 0.2001, 2):
 	
 		# Initial conditions
 		x0r = np.array([ 8.0, 0.0, 0.0])    # These represent x, y and z coordinates of the initial position.
@@ -44,7 +42,7 @@ for angle in [0.10, 0.20, 0.25, 0.35, 0.45]:			# Go from 0.05 to 1.00
 		y0 = np.array([  x0[0],  x0[1],  x0[2], 0.0, x0d[0], x0d[1], x0d[2], 1.0 ])
 
 		# Parameterized time intervals
-		s = np.linspace(0, 100, 100000)     # THe third parameter decides the "fineness" of the line. Straight lines- polygon-y vs. a smooth curve.
+		s = np.linspace(0, 100, 100000)     # The third parameter decides the "fineness" of the line. Straight lines- polygon-y vs. a smooth curve.
 
 		# Integrate
 		y = spi.odeint( deriv, y0, s )
@@ -60,7 +58,7 @@ for angle in [0.10, 0.20, 0.25, 0.35, 0.45]:			# Go from 0.05 to 1.00
 
 
 ax = pl.gca()
-ax.add_patch( pl.Circle((0,0), radius=rs, fc=[0,0,0], zorder=2))              # Draw the black hole.
+ax.add_patch( pl.Circle((0,0), radius=rs, fc=[0,0,0], zorder=2))	              	# Draw the black hole.
 ax.add_patch( pl.Circle((8.0,0.0), radius=0.2, fc=[1,0,0], zorder=2, ec=[1,0,0]))   # Draw the light source.
 pl.axis([-15, 15, -15, 15])
 
